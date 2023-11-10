@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
 
-class OrderMenuTest {
+class MenuTest {
     @Test
     fun `주문한 메뉴 항목 개수가 1개 미만이라면 예외가 발생한다`() {
         val orderCount = 0
 
-        val exception = assertThrows<IllegalArgumentException> { OrderMenu(MenuItem.BBQ_RIBS, orderCount) }
+        val exception = assertThrows<IllegalArgumentException> { Menu(MenuItem.BBQ_RIBS, orderCount) }
 
         assertThat(exception.message).isEqualTo(ErrorMessage.INVALID_ORDER)
     }
@@ -20,6 +20,6 @@ class OrderMenuTest {
     fun `주문한 메뉴 항목 개수가 1개 이상이라면 예외가 발생한다`() {
         val orderCount = 1
 
-        assertDoesNotThrow { OrderMenu(MenuItem.BBQ_RIBS, orderCount) }
+        assertDoesNotThrow { Menu(MenuItem.BBQ_RIBS, orderCount) }
     }
 }

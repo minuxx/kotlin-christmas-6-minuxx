@@ -2,7 +2,7 @@ package christmas.models
 
 import christmas.constants.ErrorMessage.INVALID_ORDER
 
-data class OrderMenu(
+data class Menu(
     val item: MenuItem,
     val count: Int
 ) {
