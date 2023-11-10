@@ -9,6 +9,8 @@ class Order(private val menus: List<Menu>) {
         require(validateTotalOrderCount() && validateNonDrinkMenuTypes()) { INVALID_ORDER }
     }
 
+    fun menus() = menus
+
     private fun validateTotalOrderCount() = menus.sumOf { it.count } <= MAX_TOTAL_ORDER_COUNT
 
     private fun validateNonDrinkMenuTypes() = !menus.all { it.item.type == MenuType.DRINK }
