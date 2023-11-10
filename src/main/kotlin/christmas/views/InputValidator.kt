@@ -24,6 +24,7 @@ class InputValidator {
 
     private fun parseMenuItem(input: String): Pair<String, Int> {
         val (description, count) = input.split(HYPHEN).map { it.trim() }
+
         return description to count.toInt()
     }
 

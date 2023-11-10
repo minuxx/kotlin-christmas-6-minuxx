@@ -7,9 +7,8 @@ class EventPlanner {
     private val inputView = InputView()
 
     fun start() {
-//        val visitDate = inputVisitDate()
+        val visitDate = inputVisitDate()
         inputOrder()
-
     }
 
     private fun inputVisitDate(): EventDate {
