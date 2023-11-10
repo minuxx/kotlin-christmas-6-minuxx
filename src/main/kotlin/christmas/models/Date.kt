@@ -10,9 +10,7 @@ class Date(private val value: Int) {
 
     fun value() = value
 
-    private fun validateDate(): Boolean {
-        return true
-    }
+    private fun validateDate(): Boolean = value in MIN_VALUE..MAX_VALUE
 
     companion object {
         const val MIN_VALUE = 1
