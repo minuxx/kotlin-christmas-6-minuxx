@@ -2,10 +2,10 @@ package christmas.models
 
 import christmas.constants.ErrorMessage
 
-class Date(private val value: Int) {
+class EventDate(private val value: Int) {
 
     init {
-        require(validateDate()) { ErrorMessage.DATE_RANGE }
+        require(validateDate()) { ErrorMessage.INVALID_DATE }
     }
 
     fun value() = value

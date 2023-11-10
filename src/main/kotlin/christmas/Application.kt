@@ -1,5 +1,9 @@
 package christmas
 
-fun main() {
+import christmas.controllers.EventPlanner
 
+fun main() {
+    val eventPlanner = EventPlanner()
+
+    eventPlanner.start()
 }
