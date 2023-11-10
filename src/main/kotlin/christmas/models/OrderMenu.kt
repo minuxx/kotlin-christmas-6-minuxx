@@ -10,7 +10,7 @@ data class OrderMenu(
         require(validateOrderMenu()) { INVALID_ORDER }
     }
 
-    fun validateOrderMenu() = count > MIN_COUNT
+    private fun validateOrderMenu() = count > MIN_COUNT
 
     companion object {
         const val MIN_COUNT = 1
