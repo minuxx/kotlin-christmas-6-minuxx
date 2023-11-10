@@ -21,6 +21,7 @@ enum class MenuItem(val type: MenuType, val description: String, val price: Int)
     CHAMPAGNE(MenuType.DRINK, "샴페인", 25000);
 
     companion object {
-        fun of(description: String): MenuItem = MenuItem.entries.find { it.description == description } ?: throw IllegalArgumentException(INVALID_ORDER)
+        fun of(description: String): MenuItem =
+            MenuItem.entries.find { it.description == description } ?: throw IllegalArgumentException(INVALID_ORDER)
     }
 }
