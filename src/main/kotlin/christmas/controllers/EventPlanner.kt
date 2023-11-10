@@ -11,7 +11,12 @@ class EventPlanner {
     }
 
     private fun inputVisitDate(): EventDate {
-        val value = inputView.readDate()
-        return EventDate(value)
+        return try {
+            val value = inputView.readDate()
+            return EventDate(value)
+        } catch (e: IllegalArgumentException) {
+            inputView.printInputErrorMessage(e.message)
+            inputVisitDate()
+        }
     }
 }
