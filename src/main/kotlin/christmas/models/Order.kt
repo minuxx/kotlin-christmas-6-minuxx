@@ -1,5 +1,6 @@
 package christmas.models
 
+import christmas.constants.Constant.NEW_LINE
 import christmas.constants.ErrorMessage.INVALID_ORDER
 import christmas.constants.MenuType
 
@@ -12,6 +13,8 @@ class Order(private val menus: List<Menu>) {
     fun menus() = menus.toList()
 
     fun amount() = menus.sumOf { it.amount() }
+
+    override fun toString() = menus.map { it.toString() }.joinToString { NEW_LINE }
 
     private fun validateOrder() = validateTotalOrderCount()
             && validateNonDrinkMenuTypes()
