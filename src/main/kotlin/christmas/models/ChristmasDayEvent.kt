@@ -1,6 +1,6 @@
 package christmas.models
 
-class ChristmasDayEvent(private val date: Int) {
+class ChristmasDayEvent(private val visitDate: Int) {
     private var benefitAmount = PRINCIPAL
 
     init {
@@ -12,6 +12,8 @@ class ChristmasDayEvent(private val date: Int) {
     private fun calculateBenefitAmount() {
 
     }
+
+    private fun validateEventDate() = false
 
     companion object {
         const val START_DATE = 1
