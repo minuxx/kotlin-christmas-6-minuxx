@@ -38,4 +38,13 @@ class OrderTest {
 
         assertDoesNotThrow { Order(menus) }
     }
+
+    @Test
+    fun `중복된 주문 메뉴가 있으면 예외가 발생한다`() {
+        val menus = listOf(Menu(MenuItem.BBQ_RIBS, 2), Menu(MenuItem.BBQ_RIBS, 2))
+
+        val exception = assertThrows<IllegalArgumentException> { Order(menus) }
+
+        assertThat(exception.message).isEqualTo(ErrorMessage.INVALID_ORDER)
+    }
 }
