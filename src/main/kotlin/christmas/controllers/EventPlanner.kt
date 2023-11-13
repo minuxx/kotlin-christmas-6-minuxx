@@ -51,6 +51,7 @@ class EventPlanner {
         order.forEach { (description, count) ->
             val item = MenuItem.of(description)
             val menu = Menu(item, count)
+
             menus.add(menu)
         }
 
