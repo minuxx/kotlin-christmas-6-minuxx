@@ -5,5 +5,5 @@ object Constant {
     const val HYPHEN = "-"
     const val NEW_LINE = "\n"
 
-    const val MENU = "%s %개"
+    const val ORDER_MENU = "%s %d개"
 }

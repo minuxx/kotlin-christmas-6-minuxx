@@ -5,14 +5,20 @@ import christmas.models.Menu
 import christmas.models.MenuItem
 import christmas.models.Order
 import christmas.views.InputView
+import christmas.views.OutputView
 
 class EventPlanner {
     private val inputView = InputView()
+    private val outputView = OutputView()
 
     fun start() {
+        outputView.printWelcome()
+
         val visitDate = inputVisitDate()
         val order = inputOrder()
-        println(order.menus())
+
+        outputView.printPreview()
+        outputView.printOrderMenu(order.toString())
     }
 
     private fun inputVisitDate(): EventDate {

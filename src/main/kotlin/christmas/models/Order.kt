@@ -14,7 +14,7 @@ class Order(private val menus: List<Menu>) {
 
     fun amount() = menus.sumOf { it.amount() }
 
-    override fun toString() = menus.map { it.toString() }.joinToString { NEW_LINE }
+    override fun toString() = menus.map { it.toString() }.joinToString(NEW_LINE)
 
     private fun validateOrder() = validateTotalOrderCount()
             && validateNonDrinkMenuTypes()

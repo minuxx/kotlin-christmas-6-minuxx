@@ -1,6 +1,6 @@
 package christmas.models
 
-import christmas.constants.Constant.MENU
+import christmas.constants.Constant.ORDER_MENU
 import christmas.constants.ErrorMessage.INVALID_ORDER
 
 data class Menu(
@@ -13,7 +13,7 @@ data class Menu(
 
     fun amount() = item.price * count
 
-    override fun toString() = MENU.format(item.description, count)
+    override fun toString() = ORDER_MENU.format(item.description, count)
 
     private fun validateOrderMenu() = count >= MIN_COUNT
 
