@@ -1,10 +1,12 @@
 package christmas.models
 
+import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
+
 class ChristmasDayEvent(private val visitDate: Int) {
     private var benefitAmount = PRINCIPAL
 
     init {
-
+        require(validateEventDate()) { INVALID_EVENT_DATE }
     }
 
     fun benefitAmount() = benefitAmount
@@ -13,7 +15,7 @@ class ChristmasDayEvent(private val visitDate: Int) {
 
     }
 
-    private fun validateEventDate() = false
+    private fun validateEventDate() = visitDate in START_DATE..END_DATE
 
     companion object {
         const val START_DATE = 1
