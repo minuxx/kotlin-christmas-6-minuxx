@@ -11,7 +11,7 @@ class Order(private val menus: List<Menu>) {
 
     fun menus() = menus.toList()
 
-    fun amount() = 0
+    fun amount() = menus.sumOf { it.amount() }
 
     private fun validateOrder() = validateTotalOrderCount()
             && validateNonDrinkMenuTypes()
