@@ -5,6 +5,8 @@ import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 
 class ChristmasDayEventTest {
     @Test
@@ -23,10 +25,16 @@ class ChristmasDayEventTest {
         assertDoesNotThrow { ChristmasDayEvent(eventDate) }
     }
 
-    @Test
-    fun `이벤트날짜에 해당하는 할인 금액을 계산한다`() {
-        val christmasDayEvent = ChristmasDayEvent(1)
-        val expectedDiscountAmount = 1000
+    @ParameterizedTest
+    @CsvSource(
+        "1, 1000",
+        "2, 1100",
+        "3, 1200",
+        "4, 1300",
+        "25, 3400"
+    )
+    fun `이벤트날짜에 해당하는 할인 금액을 계산한다`(eventDate: Int, expectedDiscountAmount: Int) {
+        val christmasDayEvent = ChristmasDayEvent(eventDate)
 
         val actualBenefitAmount = christmasDayEvent.discountAmount()
 
