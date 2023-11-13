@@ -3,16 +3,16 @@ package christmas.models
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 
 class ChristmasDayEvent(private val eventDate: Int) {
-    private var discountAmount = DISCOUNT_PRINCIPAL
+    private var calculatedDiscount = DISCOUNT_PRINCIPAL
 
     init {
-        require(validateEventDate()) { INVALID_EVENT_DATE }
-        discountAmount += (eventDate - START_DATE) * DISCOUNT_UNIT
+        require(isValidEventDate()) { INVALID_EVENT_DATE }
+        calculatedDiscount += (eventDate - START_DATE) * DISCOUNT_UNIT
     }
 
-    fun discountAmount() = discountAmount
+    fun discountAmount() = calculatedDiscount
 
-    private fun validateEventDate() = eventDate in START_DATE..END_DATE
+    private fun isValidEventDate() = eventDate in START_DATE..END_DATE
 
     companion object {
         const val START_DATE = 1
