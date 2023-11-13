@@ -73,4 +73,21 @@ class OrderTest {
 
         assertDoesNotThrow { Order(menus) }
     }
+
+    @Test
+    fun `주문 메뉴 리스트의 총금액을 계산한다`() {
+        val order = Order(
+            listOf(
+                Menu(MenuItem.BUTTON_MUSHROOM_SOUP, 2),
+                Menu(MenuItem.BBQ_RIBS, 2),
+                Menu(MenuItem.RED_WINE, 1),
+                Menu(MenuItem.CHOCOLATE_CAKE, 1),
+            )
+        )
+        val expectedAmount = 12000 + 108000 + 60000 + 15000
+
+        val actualAmount = order.amount()
+
+        assertThat(actualAmount).isEqualTo(expectedAmount)
+    }
 }

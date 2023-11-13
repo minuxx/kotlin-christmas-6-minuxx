@@ -11,6 +11,8 @@ class Order(private val menus: List<Menu>) {
 
     fun menus() = menus.toList()
 
+    fun amount() = 0
+
     private fun validateOrder() = validateTotalOrderCount()
             && validateNonDrinkMenuTypes()
             && validateNoDuplicateMenuItems()
