@@ -10,6 +10,8 @@ data class Menu(
         require(validateOrderMenu()) { INVALID_ORDER }
     }
 
+    fun amount() = 0
+
     private fun validateOrderMenu() = count >= MIN_COUNT
 
     companion object {

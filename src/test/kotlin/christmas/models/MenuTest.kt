@@ -22,4 +22,14 @@ class MenuTest {
 
         assertDoesNotThrow { Menu(MenuItem.BBQ_RIBS, orderCount) }
     }
+
+    @Test
+    fun `주문 메뉴 금액을 계산한다`() {
+        val menu = Menu(MenuItem.BBQ_RIBS, 2)
+        val expectedAmount = 108000
+
+        val actualAmount = menu.amount()
+
+        assertThat(actualAmount).isEqualTo(expectedAmount)
+    }
 }

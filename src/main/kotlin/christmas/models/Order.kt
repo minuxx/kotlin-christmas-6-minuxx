@@ -9,9 +9,9 @@ class Order(private val menus: List<Menu>) {
         require(validateOrder()) { INVALID_ORDER }
     }
 
-    fun menus(): List<Menu> = menus.toList()
+    fun menus() = menus.toList()
 
-    private fun validateOrder(): Boolean = validateTotalOrderCount()
+    private fun validateOrder() = validateTotalOrderCount()
             && validateNonDrinkMenuTypes()
             && validateNoDuplicateMenuItems()
 
