@@ -10,7 +10,7 @@ data class Menu(
         require(validateOrderMenu()) { INVALID_ORDER }
     }
 
-    fun amount() = 0
+    fun amount() = item.price * count
 
     private fun validateOrderMenu() = count >= MIN_COUNT
 
