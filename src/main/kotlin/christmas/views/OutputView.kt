@@ -10,7 +10,12 @@ class OutputView {
 
     fun printOrderMenu(orderMenu: String) {
         println(ORDER_MENU_MESSAGE)
-        println(orderMenu)
+        println(orderMenu + NEW_LINE)
+    }
+
+    fun printOrderTotalAmount(amount: Int) {
+        println(ORDER_TOTAL_AMOUNT_MESSAGE)
+        println(CURRENCY_UNIT.format(amount.withCommas()) + NEW_LINE)
     }
 
     companion object {
@@ -18,5 +23,11 @@ class OutputView {
         private const val PREVIEW_MESSAGE = "12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"
 
         private const val ORDER_MENU_MESSAGE = "<주문 메뉴>"
+        private const val ORDER_TOTAL_AMOUNT_MESSAGE = "<할인 전 총주문 금액>"
+        private const val CURRENCY_UNIT = "%s원"
     }
+}
+
+fun Int.withCommas(): String {
+    return "%,d".format(this)
 }

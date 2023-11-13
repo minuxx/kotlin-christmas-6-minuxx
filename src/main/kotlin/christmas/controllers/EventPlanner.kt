@@ -19,6 +19,7 @@ class EventPlanner {
 
         outputView.printPreview()
         outputView.printOrderMenu(order.toString())
+        outputView.printOrderTotalAmount(order.amount())
     }
 
     private fun inputVisitDate(): EventDate {
