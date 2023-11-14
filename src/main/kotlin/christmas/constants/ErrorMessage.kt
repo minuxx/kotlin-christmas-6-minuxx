@@ -8,5 +8,5 @@ object ErrorMessage {
     const val INVALID_ORDER = "$ERROR_PREFIX 유효하지 않은 주문입니다."
 
     const val INVALID_EVENT_DATE = "유효하지 않은 이벤트 날짜입니다."
-    const val INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENTATION = "총주문 금액이 증정 이벤트에 해당하지 않습니다."
+    const val INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENTATION_EVENT = "총주문 금액이 증정 이벤트에 해당하지 않습니다."
 }
