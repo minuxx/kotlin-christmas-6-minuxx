@@ -21,4 +21,9 @@ class Events(private val value: List<Event>) {
         return if (value.isEmpty()) ZERO
         else value.sumOf { it.benefitAmount() }
     }
+
+    fun totalDiscountAmount(): Int {
+        return if (value.isEmpty()) ZERO
+        else value.filter { it !is PresentationEvent }.sumOf { it.benefitAmount() }
+    }
 }
