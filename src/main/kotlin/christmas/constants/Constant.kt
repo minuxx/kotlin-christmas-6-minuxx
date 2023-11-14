@@ -7,4 +7,6 @@ object Constant {
 
     const val ORDER_MENU = "%s %d개"
     const val EVENT_MONTH = 12
+
+    const val NOTHING = "없음"
 }
