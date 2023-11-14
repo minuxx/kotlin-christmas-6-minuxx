@@ -14,7 +14,7 @@ class WeekendEvent(private val eventDate: Int, private val mainMenuCount: Int = 
         calculatedDiscount = mainMenuCount * DISCOUNT_UNIT
     }
 
-    fun discountAmount() = 0
+    fun discountAmount() = calculatedDiscount
 
     private fun isValidEventDate() = eventDate in START_DATE..END_DATE
 
