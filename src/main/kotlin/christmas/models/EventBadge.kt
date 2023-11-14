@@ -9,6 +9,9 @@ enum class EventBadge(val description: String, val minimumBenefitAmount: Int) {
     companion object {
         fun of(benefitAmount: Int): EventBadge {
             return when {
+                benefitAmount >= SANTA.minimumBenefitAmount -> SANTA
+                benefitAmount >= TREE.minimumBenefitAmount -> TREE
+                benefitAmount >= STAR.minimumBenefitAmount -> STAR
                 else -> NOTHING
             }
         }
