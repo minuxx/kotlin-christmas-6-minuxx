@@ -21,6 +21,8 @@ class EventPlanner {
 
         val eventGenerator = EventGenerator(visitDate.value(), order)
         val events = Events(eventGenerator.execute())
+
+        outputView.printPresentationMenu(events.presentationMenu())
     }
 
     private fun inputVisitDate(): EventDate {
