@@ -1,7 +1,9 @@
 package christmas.views
 
 import christmas.constants.Constants.CURRENCY_UNIT
+import christmas.constants.Constants.HYPHEN
 import christmas.constants.Constants.NEW_LINE
+import christmas.constants.Constants.ZERO
 import christmas.constants.Extensions.withCommas
 
 class OutputView {
@@ -32,7 +34,11 @@ class OutputView {
 
     fun printTotalBenefitAmount(totalBenefitAmount: Int) {
         println(TOTAL_BENEFIT_AMOUNT_MESSAGE)
-        println("-${CURRENCY_UNIT.format(totalBenefitAmount.withCommas())}" + NEW_LINE)
+        if (totalBenefitAmount != 0) {
+            println(HYPHEN + CURRENCY_UNIT.format(totalBenefitAmount.withCommas()) + NEW_LINE)
+        } else {
+            println(CURRENCY_UNIT.format(ZERO) + NEW_LINE)
+        }
     }
 
     fun printDiscountedAmount(discountedAmount: Int) {

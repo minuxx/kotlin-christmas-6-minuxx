@@ -6,7 +6,7 @@ import christmas.constants.MenuType.*
 
 enum class MenuItem(val type: MenuType, val description: String, val price: Int) {
     BUTTON_MUSHROOM_SOUP(APPETIZER, "양송이수프", 6000),
-    TAPAS(APPETIZER, "티파스", 5500),
+    TAPAS(APPETIZER, "타파스", 5500),
     CAESAR_SALAD(APPETIZER, "시저샐러드", 8000),
 
     T_BONE_STEAK(MAIN, "티본스테이크", 55000),

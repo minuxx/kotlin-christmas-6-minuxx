@@ -2,6 +2,7 @@ package christmas.models
 
 import christmas.constants.Constants.CURRENCY_UNIT
 import christmas.constants.Constants.EVENT_MONTH
+import christmas.constants.Constants.HYPHEN
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 import christmas.constants.Extensions.withCommas
 import java.time.DateTimeException
@@ -16,7 +17,7 @@ class WeekdayEvent(private val date: Int, dessertMenuCount: Int) : Event(date) {
         require(isValidEventDate() && isWeekDay()) { INVALID_EVENT_DATE }
     }
 
-    override fun toString(): String = "${NAME}: -${CURRENCY_UNIT.format(benefitAmount.withCommas())}"
+    override fun toString(): String = "${NAME}: $HYPHEN${CURRENCY_UNIT.format(benefitAmount.withCommas())}"
 
     override fun benefitAmount(): Int = benefitAmount
 
