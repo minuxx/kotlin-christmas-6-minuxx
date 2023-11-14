@@ -2,11 +2,11 @@ package christmas.models
 
 class EventGenerator(private val date: Int, private val order: Order) {
 
-    operator fun invoke(): List<Event> {
+    fun execute(): List<Event> {
         val events = mutableListOf<Event>()
         val orderAmount = order.amount()
 
-        if (MINIMUM_ORDER_AMOUNT > orderAmount) {
+        if (orderAmount < MINIMUM_ORDER_AMOUNT) {
             return emptyList()
         }
 
@@ -19,12 +19,8 @@ class EventGenerator(private val date: Int, private val order: Order) {
         return events.toList()
     }
 
-    private fun create(event: () -> Event?): Event? {
-        return try {
-            event()
-        } catch (e: IllegalArgumentException) {
-            null
-        }
+    private inline fun <reified T : Event> create(event: () -> T): T? {
+        return runCatching { event() }.getOrNull()
     }
 
     companion object {

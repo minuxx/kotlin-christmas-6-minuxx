@@ -16,9 +16,7 @@ class EventGeneratorTest {
             Menu(MenuItem.TAPAS, 1)
         ))
 
-        val eventGenerator = EventGenerator(date, order)
-
-        val actualEvents = eventGenerator.execute()
+        val actualEvents = EventGenerator(date, order).execute()
 
         assertTrue(actualEvents.isEmpty())
     }
