@@ -2,7 +2,7 @@ package christmas.models
 
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 
-class ChristmasEvent(private val date: Int) {
+class ChristmasDDayEvent(private val date: Int) {
     private var calculatedDiscount = DISCOUNT_PRINCIPAL
 
     init {
