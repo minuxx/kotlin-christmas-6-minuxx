@@ -25,6 +25,9 @@ class EventPlanner {
         outputView.printPresentationMenu(events.presentationMenu())
         outputView.printBenefitHistory(events.benefitHistories())
         outputView.printTotalBenefitAmount(events.totalBenefitAmount())
+
+        val discountedAmount = order.amount() - events.totalDiscountAmount()
+        outputView.printDiscountedAmount(discountedAmount)
     }
 
     private fun inputVisitDate(): EventDate {
