@@ -1,9 +1,6 @@
 package christmas.controllers
 
-import christmas.models.EventDate
-import christmas.models.Menu
-import christmas.models.MenuItem
-import christmas.models.Order
+import christmas.models.*
 import christmas.views.InputView
 import christmas.views.OutputView
 
@@ -20,6 +17,10 @@ class EventPlanner {
         outputView.printPreview()
         outputView.printOrderMenu(order.toString())
         outputView.printOrderTotalAmount(order.amount())
+
+
+        val eventGenerator = EventGenerator(visitDate.value(), order)
+        println(eventGenerator.execute())
     }
 
     private fun inputVisitDate(): EventDate {

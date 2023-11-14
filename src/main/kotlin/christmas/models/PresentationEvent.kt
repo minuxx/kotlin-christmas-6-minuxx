@@ -5,7 +5,7 @@ import christmas.constants.ErrorMessage.INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENT
 
 class PresentationEvent(date: Int, private val orderAmount: Int) : Event(date) {
     private val menu: Menu = Menu(MenuItem.CHAMPAGNE, 1)
-    override var benefitAmount: Int = menu.amount()
+    override val benefitAmount: Int = menu.amount()
 
     init {
         require(isValidEventDate()) { INVALID_EVENT_DATE }

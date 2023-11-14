@@ -7,8 +7,8 @@ import java.time.DayOfWeek.FRIDAY
 import java.time.DayOfWeek.SATURDAY
 import java.time.LocalDate
 
-class WeekendEvent(private val date: Int, mainMenuCount: Int = 0) : Event(date) {
-    override var benefitAmount: Int = mainMenuCount * DISCOUNT_UNIT
+class WeekendEvent(private val date: Int, mainMenuCount: Int) : Event(date) {
+    override val benefitAmount: Int = mainMenuCount * DISCOUNT_UNIT
 
     init {
         require(isValidEventDate() && isWeekend()) { INVALID_EVENT_DATE }

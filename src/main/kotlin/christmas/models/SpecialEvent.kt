@@ -3,7 +3,7 @@ package christmas.models
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 
 class SpecialEvent(private val date: Int) : Event(date) {
-    override var benefitAmount: Int = DISCOUNT_AMOUNT
+    override val benefitAmount: Int = DISCOUNT_AMOUNT
 
     init {
         require(isSpecialDate()) { INVALID_EVENT_DATE }
