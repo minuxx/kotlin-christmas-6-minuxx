@@ -13,7 +13,7 @@ class PresentationEvent(private val date: Int) {
 
     fun benefitAmount() = menu.amount()
 
-    private fun isValidEventDate() = true
+    private fun isValidEventDate() = date in START_DATE..END_DATE
 
     companion object {
         const val START_DATE = 1
