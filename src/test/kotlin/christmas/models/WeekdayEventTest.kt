@@ -10,7 +10,11 @@ import org.junit.jupiter.params.provider.ValueSource
 class WeekdayEventTest {
 
     @ParameterizedTest
-    @ValueSource(ints = [0, 32, 1, 2, 8, 9, 15, 16, 22, 23, 29, 30]) // 범위, 금, 토
+    @ValueSource(ints = [
+        0, 32, 1, 2, 8,
+        9, 15, 16, 22, 23,
+        29, 30
+    ]) // 범위, 금, 토
     fun `평일 할인 이벤트 날짜가 유효하지 않으면 예외가 발생한다`(date: Int) {
         val exception = assertThrows<IllegalArgumentException> { WeekdayEvent(date, 0) }
 
