@@ -1,16 +1,32 @@
 package christmas.models
 
+import christmas.constants.Constant.EVENT_MONTH
+import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
+import java.time.DateTimeException
+import java.time.DayOfWeek
+import java.time.LocalDate
+
 class WeekdayEvent(private val eventDate: Int, private val dessertMenuCount: Int = 0) {
     private var calculatedDiscount = 0
 
     init {
-
+        require(isValidEventDate() && isWeekDay()) { INVALID_EVENT_DATE }
     }
 
     fun discountAmount() = calculatedDiscount
 
+    private fun isValidEventDate() = eventDate in START_DATE..END_DATE
+
+    private fun isWeekDay(): Boolean {
+        return try {
+            val eventDateTime = LocalDate.of(LocalDate.now().year, EVENT_MONTH, eventDate)
+            eventDateTime.dayOfWeek != DayOfWeek.SATURDAY && eventDateTime.dayOfWeek != DayOfWeek.SUNDAY
+        } catch (e: DateTimeException) {
+            false
+        }
+    }
+
     companion object {
-        const val MONTH = 12
         const val START_DATE = 1
         const val END_DATE = 31
     }

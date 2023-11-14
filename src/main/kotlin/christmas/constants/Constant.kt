@@ -6,4 +6,5 @@ object Constant {
     const val NEW_LINE = "\n"
 
     const val ORDER_MENU = "%s %d개"
+    const val EVENT_MONTH = 12
 }
