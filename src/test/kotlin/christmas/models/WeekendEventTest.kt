@@ -9,7 +9,14 @@ import org.junit.jupiter.params.provider.ValueSource
 
 class WeekendEventTest {
     @ParameterizedTest
-    @ValueSource(ints = [0, 32, 1, 11, 20, 27]) // 범위, 평일
+    @ValueSource(ints = [
+        0, 32,
+        3, 4, 5, 6, 7,
+        10, 11, 12, 13, 14,
+        17, 18, 19, 20, 21,
+        24, 25, 26, 27, 28,
+        31
+    ]) // 범위, 평일(일 ~ 목)
     fun `주말 할인 이벤트 날짜가 유효하지 않으면 예외가 발생한다`(date: Int) {
         val exception = assertThrows<IllegalArgumentException> { WeekendEvent(date) }
 
@@ -17,7 +24,7 @@ class WeekendEventTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = [2, 3, 9, 10, 16, 17, 23, 24, 30, 31, 27])
+    @ValueSource(ints = [1, 2, 8, 9, 15, 16, 22, 23, 29, 30])
     fun `주말 할인 이벤트 날짜가 유효하면 예외가 발생하지 않는다`(date: Int) {
         assertDoesNotThrow { WeekendEvent(date) }
     }
