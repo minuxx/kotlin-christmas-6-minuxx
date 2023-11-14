@@ -30,6 +30,11 @@ class OutputView {
         println(benefitHistory + NEW_LINE)
     }
 
+    fun printTotalBenefitAmount(totalBenefitAmount: Int) {
+        println(TOTAL_BENEFIT_AMOUNT_MESSAGE)
+        println("-${CURRENCY_UNIT.format(totalBenefitAmount.withCommas())}" + NEW_LINE)
+    }
+
     companion object {
         private const val WELCOME_MESSAGE = "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다."
         private const val PREVIEW_MESSAGE = "12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"
@@ -39,5 +44,6 @@ class OutputView {
 
         private const val PRESENTATION_MENU_MESSAGE = "<증정 메뉴>"
         private const val BENEFIT_HISTORY_MESSAGE = "<혜택 내역>"
+        private const val TOTAL_BENEFIT_AMOUNT_MESSAGE = "<총혜택 금액>"
     }
 }

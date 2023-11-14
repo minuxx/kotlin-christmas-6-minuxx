@@ -16,9 +16,9 @@ class Order(private val menus: List<Menu>) {
 
     fun amount() = menus.sumOf { it.amount() }
 
-    fun mainMenuCount() = menus.count { it.item.type == MAIN }
+    fun mainMenuCount() = menus.filter { it.item.type == MAIN }.sumOf { it.count }
 
-    fun dessertMenuCount() = menus.count { it.item.type == DESSERT }
+    fun dessertMenuCount() = menus.filter { it.item.type == DESSERT }.sumOf { it.count }
 
     override fun toString() = menus.joinToString(NEW_LINE) { it.toString() }
 

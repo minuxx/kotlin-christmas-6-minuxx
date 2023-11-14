@@ -31,6 +31,6 @@ class WeekdayEvent(private val date: Int, dessertMenuCount: Int) : Event(date) {
 
     companion object {
         private const val NAME = "평일 할인"
-        private const val DISCOUNT_UNIT = 2023
+        private const val DISCOUNT_UNIT = 2_023
     }
 }

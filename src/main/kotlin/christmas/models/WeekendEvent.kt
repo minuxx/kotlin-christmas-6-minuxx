@@ -10,7 +10,7 @@ import java.time.DayOfWeek.SATURDAY
 import java.time.LocalDate
 
 class WeekendEvent(private val date: Int, mainMenuCount: Int) : Event(date) {
-    override val benefitAmount: Int = mainMenuCount * DISCOUNT_UNIT
+    override val benefitAmount: Int = (mainMenuCount * DISCOUNT_UNIT)
 
     init {
         require(isValidEventDate() && isWeekend()) { INVALID_EVENT_DATE }
@@ -31,6 +31,6 @@ class WeekendEvent(private val date: Int, mainMenuCount: Int) : Event(date) {
 
     companion object {
         private const val NAME = "주말 할인"
-        private const val DISCOUNT_UNIT = 2023
+        private const val DISCOUNT_UNIT = 2_023
     }
 }

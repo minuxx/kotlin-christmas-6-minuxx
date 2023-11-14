@@ -24,6 +24,7 @@ class EventPlanner {
 
         outputView.printPresentationMenu(events.presentationMenu())
         outputView.printBenefitHistory(events.benefitHistories())
+        outputView.printTotalBenefitAmount(events.totalBenefitAmount())
     }
 
     private fun inputVisitDate(): EventDate {
