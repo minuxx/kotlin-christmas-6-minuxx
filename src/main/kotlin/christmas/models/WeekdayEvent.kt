@@ -11,6 +11,7 @@ class WeekdayEvent(private val eventDate: Int, private val dessertMenuCount: Int
 
     init {
         require(isValidEventDate() && isWeekDay()) { INVALID_EVENT_DATE }
+        calculatedDiscount = dessertMenuCount * DISCOUNT_UNIT
     }
 
     fun discountAmount() = calculatedDiscount
@@ -29,5 +30,7 @@ class WeekdayEvent(private val eventDate: Int, private val dessertMenuCount: Int
     companion object {
         const val START_DATE = 1
         const val END_DATE = 31
+
+        private const val DISCOUNT_UNIT = 2023
     }
 }
