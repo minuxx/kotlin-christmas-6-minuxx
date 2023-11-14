@@ -1,5 +1,6 @@
 package christmas.models
 
+import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 import christmas.constants.ErrorMessage.INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENTATION_EVENT
 
 class PresentationEvent(date: Int, private val orderAmount: Int) : Event(date) {
@@ -7,6 +8,7 @@ class PresentationEvent(date: Int, private val orderAmount: Int) : Event(date) {
     override var benefitAmount: Int = menu.amount()
 
     init {
+        require(isValidEventDate()) { INVALID_EVENT_DATE }
         require(isValidOrderAmount()) { INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENTATION_EVENT }
     }
 

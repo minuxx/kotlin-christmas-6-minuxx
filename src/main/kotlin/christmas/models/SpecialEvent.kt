@@ -6,12 +6,12 @@ class SpecialEvent(private val date: Int) : Event(date) {
     override var benefitAmount: Int = DISCOUNT_AMOUNT
 
     init {
-        require(isNotSpecialDate()) { INVALID_EVENT_DATE }
+        require(isSpecialDate()) { INVALID_EVENT_DATE }
     }
 
     override fun benefitAmount() = benefitAmount
 
-    private fun isNotSpecialDate() = date !in specialDates
+    private fun isSpecialDate() = date in specialDates
 
     companion object {
         private val specialDates = setOf(3, 10, 17, 24, 25, 31)

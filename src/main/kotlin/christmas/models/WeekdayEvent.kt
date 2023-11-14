@@ -6,17 +6,14 @@ import java.time.DateTimeException
 import java.time.DayOfWeek
 import java.time.LocalDate
 
-class WeekdayEvent(private val date: Int, private val dessertMenuCount: Int = 0) {
-    private var calculatedDiscount = 0
+class WeekdayEvent(private val date: Int, dessertMenuCount: Int = 0) : Event(date) {
+    override var benefitAmount: Int = dessertMenuCount * DISCOUNT_UNIT
 
     init {
         require(isValidEventDate() && isWeekDay()) { INVALID_EVENT_DATE }
-        calculatedDiscount = dessertMenuCount * DISCOUNT_UNIT
     }
 
-    fun discountAmount() = calculatedDiscount
-
-    private fun isValidEventDate() = date in START_DATE..END_DATE
+    override fun benefitAmount(): Int = benefitAmount
 
     private fun isWeekDay(): Boolean {
         return try {
@@ -28,9 +25,6 @@ class WeekdayEvent(private val date: Int, private val dessertMenuCount: Int = 0)
     }
 
     companion object {
-        const val START_DATE = 1
-        const val END_DATE = 31
-
         private const val DISCOUNT_UNIT = 2023
     }
 }

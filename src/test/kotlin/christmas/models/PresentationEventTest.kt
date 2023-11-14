@@ -1,6 +1,5 @@
 package christmas.models
 
-import christmas.constants.ErrorMessage
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 import christmas.constants.ErrorMessage.INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENTATION_EVENT
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
