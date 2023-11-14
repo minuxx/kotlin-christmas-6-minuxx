@@ -1,18 +1,17 @@
 package christmas.models
 
-import christmas.constants.Constants.CURRENCY_UNIT
-import christmas.constants.Constants.HYPHEN
-import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
+import christmas.constants.Constants.MINUS_CURRENCY_UNIT
+import christmas.constants.ErrorMessage.INVALID_DATE
 import christmas.constants.Extensions.withCommas
 
 class ChristmasDDayEvent(private val date: Int) : Event(date) {
     override val benefitAmount: Int = DISCOUNT_PRINCIPAL + (date - START_DATE) * DISCOUNT_UNIT
 
     init {
-        require(isValidChristmasEventDate()) { INVALID_EVENT_DATE }
+        require(isValidChristmasEventDate()) { INVALID_DATE }
     }
 
-    override fun toString(): String = "$NAME: $HYPHEN${CURRENCY_UNIT.format(benefitAmount.withCommas())}"
+    override fun toString(): String = "$NAME: ${MINUS_CURRENCY_UNIT.format(benefitAmount.withCommas())}"
 
     override fun benefitAmount() = benefitAmount
 

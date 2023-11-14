@@ -1,7 +1,7 @@
 package christmas.models
 
-import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
-import christmas.constants.ErrorMessage.INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENTATION_EVENT
+import christmas.constants.ErrorMessage.INVALID_DATE
+import christmas.constants.ErrorMessage.INVALID_ORDER_AMOUNT_FOR_PRESENTATION_EVENT
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
@@ -16,7 +16,7 @@ class PresentationEventTest {
     fun `증정 이벤트 날짜가 유효하지 않으면 예외가 발생한다`(date: Int) {
         val exception = assertThrows<IllegalArgumentException> { PresentationEvent(date, 120_000) }
 
-        assertThat(exception.message).isEqualTo(INVALID_EVENT_DATE)
+        assertThat(exception.message).isEqualTo(INVALID_DATE)
     }
 
     @ParameterizedTest
@@ -31,7 +31,7 @@ class PresentationEventTest {
 
         val exception = assertThrows<IllegalArgumentException> { PresentationEvent(1, orderAmount) }
 
-        assertThat(exception.message).isEqualTo(INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENTATION_EVENT)
+        assertThat(exception.message).isEqualTo(INVALID_ORDER_AMOUNT_FOR_PRESENTATION_EVENT)
     }
 
     @Test

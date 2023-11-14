@@ -20,7 +20,7 @@ class WeekendEventTest {
     fun `주말 할인 이벤트 날짜가 유효하지 않으면 예외가 발생한다`(date: Int) {
         val exception = assertThrows<IllegalArgumentException> { WeekendEvent(date, 0) }
 
-        assertThat(exception.message).isEqualTo(ErrorMessage.INVALID_EVENT_DATE)
+        assertThat(exception.message).isEqualTo(ErrorMessage.INVALID_DATE)
     }
 
     @ParameterizedTest

@@ -15,7 +15,7 @@ class ChristmasDDayEventTest {
 
         val exception = assertThrows<IllegalArgumentException> { ChristmasDDayEvent(eventDate) }
 
-        assertThat(exception.message).isEqualTo(ErrorMessage.INVALID_EVENT_DATE)
+        assertThat(exception.message).isEqualTo(ErrorMessage.INVALID_DATE)
     }
 
     @Test

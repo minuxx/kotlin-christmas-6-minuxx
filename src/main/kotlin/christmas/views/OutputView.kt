@@ -1,8 +1,10 @@
 package christmas.views
 
+import christmas.constants.Constants
 import christmas.constants.Constants.CURRENCY_UNIT
 import christmas.constants.Constants.EVENT_MONTH
 import christmas.constants.Constants.HYPHEN
+import christmas.constants.Constants.MINUS_CURRENCY_UNIT
 import christmas.constants.Constants.NEW_LINE
 import christmas.constants.Constants.ZERO
 import christmas.constants.Extensions.withCommas
@@ -39,8 +41,9 @@ class OutputView {
 
     fun printTotalBenefitAmount(totalBenefitAmount: Int) {
         println(TOTAL_BENEFIT_AMOUNT_MESSAGE)
+
         if (totalBenefitAmount != 0) {
-            println(HYPHEN + CURRENCY_UNIT.format(totalBenefitAmount.withCommas()) + NEW_LINE)
+            println(MINUS_CURRENCY_UNIT.format(totalBenefitAmount.withCommas()) + NEW_LINE)
         } else {
             println(CURRENCY_UNIT.format(ZERO) + NEW_LINE)
         }
@@ -51,9 +54,9 @@ class OutputView {
         println(CURRENCY_UNIT.format(discountedAmount.withCommas()) + NEW_LINE)
     }
 
-    fun printEventBadge(description: String) {
+    fun printEventBadge(eventBadge: String) {
         println(EVENT_BADGE_MESSAGE)
-        println(description + NEW_LINE)
+        println(eventBadge + NEW_LINE)
     }
 
     companion object {

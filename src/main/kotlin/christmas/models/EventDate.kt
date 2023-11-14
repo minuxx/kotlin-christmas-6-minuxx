@@ -1,19 +1,16 @@
 package christmas.models
 
-import christmas.constants.ErrorMessage
+import christmas.constants.ErrorMessage.INVALID_DATE
+import christmas.models.Event.Companion.END_DATE
+import christmas.models.Event.Companion.START_DATE
 
 class EventDate(private val value: Int) {
 
     init {
-        require(validateDate()) { ErrorMessage.INVALID_DATE }
+        require(isValidEventDate()) { INVALID_DATE }
     }
 
     fun value() = value
 
-    private fun validateDate(): Boolean = value in MIN_VALUE..MAX_VALUE
-
-    companion object {
-        const val MIN_VALUE = 1
-        const val MAX_VALUE = 31
-    }
+    private fun isValidEventDate(): Boolean = value in START_DATE..END_DATE
 }

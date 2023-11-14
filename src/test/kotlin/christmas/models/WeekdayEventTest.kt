@@ -1,6 +1,6 @@
 package christmas.models
 
-import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
+import christmas.constants.ErrorMessage.INVALID_DATE
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
@@ -18,7 +18,7 @@ class WeekdayEventTest {
     fun `평일 할인 이벤트 날짜가 유효하지 않으면 예외가 발생한다`(date: Int) {
         val exception = assertThrows<IllegalArgumentException> { WeekdayEvent(date, 0) }
 
-        assertThat(exception.message).isEqualTo(INVALID_EVENT_DATE)
+        assertThat(exception.message).isEqualTo(INVALID_DATE)
     }
 
     @ParameterizedTest
