@@ -1,6 +1,7 @@
 package christmas.views
 
-import christmas.constants.Constant.NEW_LINE
+import christmas.constants.Constants.NEW_LINE
+import christmas.constants.Extensions.withCommas
 
 class OutputView {
 
@@ -32,9 +33,6 @@ class OutputView {
         private const val CURRENCY_UNIT = "%s원"
 
         private const val PRESENTATION_MENU_MESSAGE = "<증정 메뉴>"
+        private const val BENEFIT_HISTORY_MESSAGE = "<혜택 내역>"
     }
-}
-
-fun Int.withCommas(): String {
-    return "%,d".format(this)
 }

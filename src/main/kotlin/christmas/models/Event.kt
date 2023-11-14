@@ -1,11 +1,12 @@
 package christmas.models
 
-import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
-
 abstract class Event(private val date: Int) {
     protected abstract val benefitAmount: Int
 
     abstract fun benefitAmount(): Int
+
+    abstract override fun toString(): String
+
     fun isValidEventDate(): Boolean = date in START_DATE..END_DATE
 
     companion object {

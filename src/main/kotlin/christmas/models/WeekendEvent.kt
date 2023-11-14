@@ -1,7 +1,8 @@
 package christmas.models
 
-import christmas.constants.Constant.EVENT_MONTH
+import christmas.constants.Constants.EVENT_MONTH
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
+import christmas.constants.Extensions.withCommas
 import java.time.DateTimeException
 import java.time.DayOfWeek.FRIDAY
 import java.time.DayOfWeek.SATURDAY
@@ -13,6 +14,9 @@ class WeekendEvent(private val date: Int, mainMenuCount: Int) : Event(date) {
     init {
         require(isValidEventDate() && isWeekend()) { INVALID_EVENT_DATE }
     }
+
+    override fun toString(): String = "${NAME}: -${benefitAmount.withCommas()}"
+
     override fun benefitAmount(): Int = benefitAmount
 
     private fun isWeekend(): Boolean {
@@ -25,6 +29,7 @@ class WeekendEvent(private val date: Int, mainMenuCount: Int) : Event(date) {
     }
 
     companion object {
+        private const val NAME = "주말 할인"
         private const val DISCOUNT_UNIT = 2023
     }
 }

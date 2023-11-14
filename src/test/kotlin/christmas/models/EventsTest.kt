@@ -1,6 +1,6 @@
 package christmas.models
 
-import christmas.constants.Constant.NOTHING
+import christmas.constants.Constants.NOTHING
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.Test
 

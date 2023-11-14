@@ -1,6 +1,6 @@
 package christmas.models
 
-import christmas.constants.Constant.NEW_LINE
+import christmas.constants.Constants.NEW_LINE
 import christmas.constants.ErrorMessage.INVALID_ORDER
 import christmas.constants.MenuType.MAIN
 import christmas.constants.MenuType.DRINK

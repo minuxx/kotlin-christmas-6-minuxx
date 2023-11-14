@@ -1,6 +1,6 @@
 package christmas.models
 
-import christmas.constants.Constant.ORDER_MENU
+import christmas.constants.Constants.ORDER_MENU
 import christmas.constants.ErrorMessage.INVALID_ORDER
 
 data class Menu(

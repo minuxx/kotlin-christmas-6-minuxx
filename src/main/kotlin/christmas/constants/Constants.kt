@@ -1,6 +1,6 @@
 package christmas.constants
 
-object Constant {
+object Constants {
     const val COMMA = ","
     const val HYPHEN = "-"
     const val NEW_LINE = "\n"

@@ -1,7 +1,7 @@
 package christmas.views
 
-import christmas.constants.Constant.COMMA
-import christmas.constants.Constant.HYPHEN
+import christmas.constants.Constants.COMMA
+import christmas.constants.Constants.HYPHEN
 import christmas.constants.ErrorMessage.INVALID_DATE
 import christmas.constants.ErrorMessage.INVALID_ORDER
 
