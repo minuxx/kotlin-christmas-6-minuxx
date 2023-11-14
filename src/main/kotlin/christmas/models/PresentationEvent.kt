@@ -2,11 +2,12 @@ package christmas.models
 
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 
-class PresentationEvent(private val date: Int) {
+class PresentationEvent(private val date: Int, private val orderAmount: Int) {
     private val menu: Menu = Menu(MenuItem.CHAMPAGNE, 1)
 
     init {
         require(isValidEventDate()) { INVALID_EVENT_DATE }
+        require(isValidMinimumOrderAmount())
     }
 
     fun menu() = menu.toString()
@@ -15,8 +16,12 @@ class PresentationEvent(private val date: Int) {
 
     private fun isValidEventDate() = date in START_DATE..END_DATE
 
-    companion object {
+    private fun isValidMinimumOrderAmount() = true
+
+            companion object {
         const val START_DATE = 1
         const val END_DATE = 31
+
+        private const val MINIMUM_ORDER_AMOUNT = 120_000
     }
 }
