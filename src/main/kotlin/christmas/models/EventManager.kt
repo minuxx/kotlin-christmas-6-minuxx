@@ -5,6 +5,8 @@ import christmas.constants.Constant.NOTHING
 class Events(private val value: List<Event>) {
 
     fun presentationMenu(): String {
-        return ""
+        val event = value.find { it is PresentationEvent } as PresentationEvent?
+
+        return event?.menu() ?: NOTHING
     }
 }
