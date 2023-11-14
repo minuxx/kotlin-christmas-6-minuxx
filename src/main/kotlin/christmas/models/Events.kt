@@ -2,6 +2,7 @@ package christmas.models
 
 import christmas.constants.Constants.NEW_LINE
 import christmas.constants.Constants.NOTHING
+import christmas.constants.Constants.ZERO
 
 class Events(private val value: List<Event>) {
 
@@ -11,5 +12,13 @@ class Events(private val value: List<Event>) {
         return event?.menu() ?: NOTHING
     }
 
-    fun benefitHistories(): String = value.joinToString(NEW_LINE) { it.toString() }
+    fun benefitHistories(): String {
+        return if (value.isEmpty()) NOTHING
+        else value.joinToString(NEW_LINE) { it.toString() }
+    }
+
+    fun totalBenefitAmount(): Int {
+        return if (value.isEmpty()) ZERO
+        else value.sumOf { it.benefitAmount() }
+    }
 }
