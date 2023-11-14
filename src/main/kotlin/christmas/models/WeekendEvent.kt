@@ -1,5 +1,6 @@
 package christmas.models
 
+import christmas.constants.Constants.CURRENCY_UNIT
 import christmas.constants.Constants.EVENT_MONTH
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 import christmas.constants.Extensions.withCommas
@@ -15,7 +16,7 @@ class WeekendEvent(private val date: Int, mainMenuCount: Int) : Event(date) {
         require(isValidEventDate() && isWeekend()) { INVALID_EVENT_DATE }
     }
 
-    override fun toString(): String = "${NAME}: -${benefitAmount.withCommas()}"
+    override fun toString(): String = "${NAME}: -${CURRENCY_UNIT.format(benefitAmount.withCommas())}"
 
     override fun benefitAmount(): Int = benefitAmount
 

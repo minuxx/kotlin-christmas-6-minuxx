@@ -5,6 +5,7 @@ object Constants {
     const val HYPHEN = "-"
     const val NEW_LINE = "\n"
 
+    const val CURRENCY_UNIT = "%s원"
     const val ORDER_MENU = "%s %d개"
     const val EVENT_MONTH = 12
 

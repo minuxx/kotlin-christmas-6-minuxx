@@ -1,5 +1,6 @@
 package christmas.models
 
+import christmas.constants.Constants.CURRENCY_UNIT
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 import christmas.constants.ErrorMessage.INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENTATION_EVENT
 import christmas.constants.Extensions.withCommas
@@ -13,7 +14,7 @@ class PresentationEvent(date: Int, private val orderAmount: Int) : Event(date) {
         require(isValidOrderAmount()) { INVALID_MINIMUM_ORDER_AMOUNT_FOR_PRESENTATION_EVENT }
     }
 
-    override fun toString(): String = "${NAME}: -${benefitAmount.withCommas()}"
+    override fun toString(): String = "${NAME}: -${CURRENCY_UNIT.format(benefitAmount.withCommas())}"
 
     fun menu() = menu.toString()
 

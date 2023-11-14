@@ -23,6 +23,7 @@ class EventPlanner {
         val events = Events(eventGenerator.execute())
 
         outputView.printPresentationMenu(events.presentationMenu())
+        outputView.printBenefitHistory(events.benefitHistories())
     }
 
     private fun inputVisitDate(): EventDate {
