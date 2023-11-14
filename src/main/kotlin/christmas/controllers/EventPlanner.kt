@@ -20,7 +20,7 @@ class EventPlanner {
 
 
         val eventGenerator = EventGenerator(visitDate.value(), order)
-        println(eventGenerator.execute())
+        val events = Events(eventGenerator.execute())
     }
 
     private fun inputVisitDate(): EventDate {
