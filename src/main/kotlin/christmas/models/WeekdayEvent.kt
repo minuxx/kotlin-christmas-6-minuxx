@@ -6,7 +6,7 @@ import java.time.DateTimeException
 import java.time.DayOfWeek
 import java.time.LocalDate
 
-class WeekdayEvent(private val eventDate: Int, private val dessertMenuCount: Int = 0) {
+class WeekdayEvent(private val date: Int, private val dessertMenuCount: Int = 0) {
     private var calculatedDiscount = 0
 
     init {
@@ -16,11 +16,11 @@ class WeekdayEvent(private val eventDate: Int, private val dessertMenuCount: Int
 
     fun discountAmount() = calculatedDiscount
 
-    private fun isValidEventDate() = eventDate in START_DATE..END_DATE
+    private fun isValidEventDate() = date in START_DATE..END_DATE
 
     private fun isWeekDay(): Boolean {
         return try {
-            val eventDateTime = LocalDate.of(LocalDate.now().year, EVENT_MONTH, eventDate)
+            val eventDateTime = LocalDate.of(LocalDate.now().year, EVENT_MONTH, date)
             eventDateTime.dayOfWeek != DayOfWeek.SATURDAY && eventDateTime.dayOfWeek != DayOfWeek.SUNDAY
         } catch (e: DateTimeException) {
             false

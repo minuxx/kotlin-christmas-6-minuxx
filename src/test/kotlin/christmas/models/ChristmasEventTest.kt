@@ -8,12 +8,12 @@ import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
-class ChristmasDayEventTest {
+class ChristmasEventTest {
     @Test
     fun `이벤트날짜가 크리스마스 디데이 할인 기간이 아니면 예외가 발생한다`() {
         val eventDate = 26
 
-        val exception = assertThrows<IllegalArgumentException> { ChristmasDayEvent(eventDate) }
+        val exception = assertThrows<IllegalArgumentException> { ChristmasEvent(eventDate) }
 
         assertThat(exception.message).isEqualTo(ErrorMessage.INVALID_EVENT_DATE)
     }
@@ -22,7 +22,7 @@ class ChristmasDayEventTest {
     fun `이벤트날짜가 크리스마스 디데이 할인 기간이면 예외가 발생하지 않는다`() {
         val eventDate = 25
 
-        assertDoesNotThrow { ChristmasDayEvent(eventDate) }
+        assertDoesNotThrow { ChristmasEvent(eventDate) }
     }
 
     @ParameterizedTest
@@ -34,7 +34,7 @@ class ChristmasDayEventTest {
         "25, 3400"
     )
     fun `이벤트날짜에 해당하는 할인 금액을 계산한다`(eventDate: Int, expectedDiscountAmount: Int) {
-        val christmasDayEvent = ChristmasDayEvent(eventDate)
+        val christmasDayEvent = ChristmasEvent(eventDate)
 
         val actualDiscountAmount = christmasDayEvent.discountAmount()
 

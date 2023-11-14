@@ -11,15 +11,15 @@ class SpecialEventTest {
 
     @ParameterizedTest
     @ValueSource(ints = [0, 32, 11, 19, 26, 29])
-    fun `특별 할인 이벤트 날짜가 유효하지 않으면 예외가 발생한다`(eventDate: Int) {
-        val exception = assertThrows<IllegalArgumentException> { SpecialEvent(eventDate) }
+    fun `특별 할인 이벤트 날짜가 유효하지 않으면 예외가 발생한다`(date: Int) {
+        val exception = assertThrows<IllegalArgumentException> { SpecialEvent(date) }
 
         assertThat(exception.message).isEqualTo(ErrorMessage.INVALID_EVENT_DATE)
     }
 
     @ParameterizedTest
     @ValueSource(ints = [3, 10, 17, 24, 25, 31])
-    fun `특별 할인 이벤트 날짜가 유효하면 예외가 발생하지 않는다`(eventDate: Int) {
-        assertDoesNotThrow { SpecialEvent(eventDate) }
+    fun `특별 할인 이벤트 날짜가 유효하면 예외가 발생하지 않는다`(date: Int) {
+        assertDoesNotThrow { SpecialEvent(date) }
     }
 }
