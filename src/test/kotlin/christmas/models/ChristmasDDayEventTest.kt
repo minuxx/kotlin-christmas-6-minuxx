@@ -36,8 +36,8 @@ class ChristmasDDayEventTest {
     fun `이벤트날짜에 해당하는 할인 금액을 계산한다`(eventDate: Int, expectedDiscountAmount: Int) {
         val christmasDayEvent = ChristmasDDayEvent(eventDate)
 
-        val actualDiscountAmount = christmasDayEvent.discountAmount()
+        val actualBenefitAmount = christmasDayEvent.benefitAmount()
 
-        assertThat(actualDiscountAmount).isEqualTo(expectedDiscountAmount)
+        assertThat(actualBenefitAmount).isEqualTo(expectedDiscountAmount)
     }
 }
