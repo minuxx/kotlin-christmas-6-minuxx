@@ -3,7 +3,7 @@ package christmas.models
 import christmas.constants.ErrorMessage.INVALID_EVENT_DATE
 
 class SpecialEvent(private val eventDate: Int) {
-    private var calculatedDiscount = DISCOUNT_UNIT
+    private var calculatedDiscount = DISCOUNT_AMOUNT
 
     init {
         require(isValidSpecialDate()) { INVALID_EVENT_DATE }
@@ -16,8 +16,8 @@ class SpecialEvent(private val eventDate: Int) {
     companion object {
         const val START_DATE = 1
         const val END_DATE = 31
-        private val specialDates = listOf(3, 10, 17, 24, 25, 31)
+        private val specialDates = setOf(3, 10, 17, 24, 25, 31)
 
-        private const val DISCOUNT_UNIT = 1000
+        private const val DISCOUNT_AMOUNT = 1000
     }
 }
