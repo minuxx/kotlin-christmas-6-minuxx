@@ -1,11 +1,9 @@
-package christmas.models
+package christmas.models.events
 
-import christmas.constants.Constants
 import java.time.DateTimeException
-import java.time.DayOfWeek
 import java.time.LocalDate
 
-abstract class Event(private val date: Int) {
+abstract class Event {
     protected abstract val benefitAmount: Int
 
     abstract fun benefitAmount(): Int

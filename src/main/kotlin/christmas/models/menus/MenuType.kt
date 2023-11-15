@@ -1,4 +1,4 @@
-package christmas.models
+package christmas.models.menus
 
 enum class MenuType {
     APPETIZER,

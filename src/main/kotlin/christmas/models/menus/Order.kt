@@ -1,10 +1,10 @@
-package christmas.models
+package christmas.models.menus
 
 import christmas.constants.Constants.NEW_LINE
 import christmas.constants.ErrorMessage.INVALID_ORDER
-import christmas.models.MenuType.MAIN
-import christmas.models.MenuType.DRINK
-import christmas.models.MenuType.DESSERT
+import christmas.models.menus.MenuType.MAIN
+import christmas.models.menus.MenuType.DRINK
+import christmas.models.menus.MenuType.DESSERT
 
 class Order(private val menus: List<Menu>) {
 

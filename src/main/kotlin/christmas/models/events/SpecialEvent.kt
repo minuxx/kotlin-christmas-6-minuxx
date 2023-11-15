@@ -1,17 +1,17 @@
-package christmas.models
+package christmas.models.events
 
 import christmas.constants.Constants.MINUS_CURRENCY_UNIT
 import christmas.constants.ErrorMessage.INVALID_DATE
 import christmas.constants.Extensions.withCommas
 
-class SpecialEvent(private val date: Int) : Event(date) {
+class SpecialEvent(private val date: Int) : Event() {
     override val benefitAmount: Int = DISCOUNT_AMOUNT
 
     init {
         require(isSpecialDate()) { INVALID_DATE }
     }
 
-    override fun toString(): String = "${NAME}: ${MINUS_CURRENCY_UNIT.format(benefitAmount.withCommas())}"
+    override fun toString(): String = "$NAME: ${MINUS_CURRENCY_UNIT.format(benefitAmount.withCommas())}"
 
     override fun benefitAmount() = benefitAmount
 

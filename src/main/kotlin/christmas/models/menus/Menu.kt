@@ -1,4 +1,4 @@
-package christmas.models
+package christmas.models.menus
 
 import christmas.constants.Constants.MENU_WITH_COUNT
 import christmas.constants.ErrorMessage.INVALID_ORDER

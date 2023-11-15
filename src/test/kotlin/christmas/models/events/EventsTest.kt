@@ -1,6 +1,11 @@
-package christmas.models
+package christmas.models.events
 
 import christmas.constants.Constants.NOTHING
+import christmas.models.events.Events
+import christmas.models.events.PresentationEvent
+import christmas.models.events.WeekendEvent
+import christmas.models.menus.Menu
+import christmas.models.menus.MenuItem
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.Test
 

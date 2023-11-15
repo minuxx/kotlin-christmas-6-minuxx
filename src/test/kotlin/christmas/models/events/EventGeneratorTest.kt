@@ -1,5 +1,8 @@
-package christmas.models
+package christmas.models.events
 
+import christmas.models.menus.Menu
+import christmas.models.menus.MenuItem
+import christmas.models.menus.Order
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue

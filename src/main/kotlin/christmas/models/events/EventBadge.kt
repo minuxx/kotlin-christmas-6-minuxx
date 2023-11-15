@@ -1,4 +1,4 @@
-package christmas.models
+package christmas.models.events
 
 enum class EventBadge(val description: String, val minimumBenefitAmount: Int) {
     STAR("별", 5_000),

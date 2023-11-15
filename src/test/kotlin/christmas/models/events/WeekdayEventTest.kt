@@ -1,6 +1,7 @@
-package christmas.models
+package christmas.models.events
 
 import christmas.constants.ErrorMessage.INVALID_DATE
+import christmas.models.events.WeekdayEvent
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows

@@ -1,7 +1,7 @@
-package christmas.models
+package christmas.models.events
 
 import christmas.constants.ErrorMessage.INVALID_DATE
-import christmas.models.Event.Companion.isValidEventDate
+import christmas.models.events.Event.Companion.isValidEventDate
 
 class EventDate(private val value: Int) {
 

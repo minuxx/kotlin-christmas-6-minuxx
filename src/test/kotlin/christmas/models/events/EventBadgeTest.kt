@@ -1,7 +1,7 @@
-package christmas.models
+package christmas.models.events
 
+import christmas.models.events.EventBadge
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 

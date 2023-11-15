@@ -1,7 +1,7 @@
-package christmas.models
+package christmas.models.menus
 
 import christmas.constants.ErrorMessage.INVALID_ORDER
-import christmas.models.MenuType.*
+import christmas.models.menus.MenuType.*
 
 enum class MenuItem(val type: MenuType, val description: String, val price: Int) {
     BUTTON_MUSHROOM_SOUP(APPETIZER, "양송이수프", 6_000),

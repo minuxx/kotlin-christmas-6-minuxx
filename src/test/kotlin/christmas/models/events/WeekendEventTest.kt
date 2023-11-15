@@ -1,6 +1,7 @@
-package christmas.models
+package christmas.models.events
 
 import christmas.constants.ErrorMessage
+import christmas.models.events.WeekendEvent
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows

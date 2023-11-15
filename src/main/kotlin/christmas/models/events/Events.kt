@@ -1,4 +1,4 @@
-package christmas.models
+package christmas.models.events
 
 import christmas.constants.Constants.NEW_LINE
 import christmas.constants.Constants.NOTHING

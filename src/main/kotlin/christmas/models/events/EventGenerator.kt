@@ -1,4 +1,6 @@
-package christmas.models
+package christmas.models.events
+
+import christmas.models.menus.Order
 
 class EventGenerator(private val date: Int, private val order: Order) {
 

@@ -1,7 +1,8 @@
-package christmas.models
+package christmas.models.events
 
 import christmas.constants.ErrorMessage.INVALID_DATE
 import christmas.constants.ErrorMessage.INVALID_ORDER_AMOUNT_FOR_PRESENTATION_EVENT
+import christmas.models.events.PresentationEvent
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow

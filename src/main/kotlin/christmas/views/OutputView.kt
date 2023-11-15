@@ -5,7 +5,7 @@ import christmas.constants.Constants.MINUS_CURRENCY_UNIT
 import christmas.constants.Constants.NEW_LINE
 import christmas.constants.Constants.ZERO
 import christmas.constants.Extensions.withCommas
-import christmas.models.Event
+import christmas.models.events.Event
 
 class OutputView {
 

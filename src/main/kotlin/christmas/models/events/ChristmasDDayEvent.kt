@@ -1,10 +1,10 @@
-package christmas.models
+package christmas.models.events
 
 import christmas.constants.Constants.MINUS_CURRENCY_UNIT
 import christmas.constants.ErrorMessage.INVALID_DATE
 import christmas.constants.Extensions.withCommas
 
-class ChristmasDDayEvent(private val date: Int) : Event(date) {
+class ChristmasDDayEvent(private val date: Int) : Event() {
     override val benefitAmount: Int = DISCOUNT_PRINCIPAL + (date - START_DATE) * DISCOUNT_UNIT
 
     init {

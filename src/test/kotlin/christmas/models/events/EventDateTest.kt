@@ -1,6 +1,7 @@
-package christmas.models
+package christmas.models.events
 
 import christmas.constants.ErrorMessage
+import christmas.models.events.EventDate
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
-class DateTest {
+class EventDateTest {
 
     @ParameterizedTest
     @ValueSource(ints = [0, 32])
