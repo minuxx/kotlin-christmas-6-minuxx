@@ -17,7 +17,10 @@ class EventPlanner {
     fun start() {
         outputView.printWelcome()
 
+        outputView.printInputVisitDate()
         val visitDate = inputVisitDate()
+
+        outputView.printInputOrder()
         val order = inputOrder()
 
         outputView.printPreviewEvent(visitDate.value())
@@ -47,7 +50,7 @@ class EventPlanner {
 
             return EventDate(value)
         } catch (e: IllegalArgumentException) {
-            inputView.printInputErrorMessage(e.message)
+            outputView.printInputErrorMessage(e.message)
             inputVisitDate()
         }
     }
@@ -59,7 +62,7 @@ class EventPlanner {
 
             return Order(menus)
         } catch (e: IllegalArgumentException) {
-            inputView.printInputErrorMessage(e.message)
+            outputView.printInputErrorMessage(e.message)
             inputOrder()
         }
     }
