@@ -22,13 +22,13 @@ class EventPlanner {
         val events = Events(eventGenerator.execute())
 
         outputView.printPresentationMenu(events.presentationMenu())
-        outputView.printBenefitHistory(events.benefitHistories())
+        outputView.printBenefitHistory(events.benefitHistory())
 
-        val totalBenefitAmount = events.totalBenefitAmount()
+        val totalBenefitAmount = events.benefitAmount()
 
         outputView.printTotalBenefitAmount(totalBenefitAmount)
 
-        val discountedAmount = order.amount() - events.totalDiscountAmount()
+        val discountedAmount = order.amount() - events.discountAmount()
         outputView.printDiscountedAmount(discountedAmount)
 
         val eventBadge = EventBadge.of(totalBenefitAmount)

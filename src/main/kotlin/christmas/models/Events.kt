@@ -2,28 +2,23 @@ package christmas.models
 
 import christmas.constants.Constants.NEW_LINE
 import christmas.constants.Constants.NOTHING
-import christmas.constants.Constants.ZERO
 
 class Events(private val value: List<Event>) {
 
     fun presentationMenu(): String {
-        val event = value.find { it is PresentationEvent } as PresentationEvent?
-
-        return event?.menu() ?: NOTHING
+        val presentationEvent = value.filterIsInstance<PresentationEvent>().firstOrNull()
+        return presentationEvent?.menu() ?: NOTHING
     }
 
-    fun benefitHistories(): String {
+    fun benefitHistory(): String {
         return if (value.isEmpty()) NOTHING
         else value.joinToString(NEW_LINE) { it.toString() }
     }
 
-    fun totalBenefitAmount(): Int {
-        return if (value.isEmpty()) ZERO
-        else value.sumOf { it.benefitAmount() }
-    }
+    fun benefitAmount(): Int = value.sumOf { it.benefitAmount() }
 
-    fun totalDiscountAmount(): Int {
-        return if (value.isEmpty()) ZERO
-        else value.filter { it !is PresentationEvent }.sumOf { it.benefitAmount() }
+    fun discountAmount(): Int {
+        val discountEvents = value.filter { it !is PresentationEvent }
+        return discountEvents.sumOf { it.benefitAmount() }
     }
 }
