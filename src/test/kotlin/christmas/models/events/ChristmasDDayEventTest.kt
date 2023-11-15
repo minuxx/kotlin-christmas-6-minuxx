@@ -10,6 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
 class ChristmasDDayEventTest {
+
     @Test
     fun `이벤트날짜가 크리스마스 디데이 할인 기간이 아니면 예외가 발생한다`() {
         val eventDate = 26

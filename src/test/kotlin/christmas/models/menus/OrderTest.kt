@@ -1,9 +1,6 @@
 package christmas.models.menus
 
 import christmas.constants.ErrorMessage
-import christmas.models.menus.Menu
-import christmas.models.menus.MenuItem
-import christmas.models.menus.Order
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
