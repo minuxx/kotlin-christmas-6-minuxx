@@ -2,17 +2,19 @@ package christmas.models
 
 import christmas.constants.Constants.NEW_LINE
 import christmas.constants.ErrorMessage.INVALID_ORDER
-import christmas.constants.MenuType.MAIN
-import christmas.constants.MenuType.DRINK
-import christmas.constants.MenuType.DESSERT
+import christmas.models.MenuType.MAIN
+import christmas.models.MenuType.DRINK
+import christmas.models.MenuType.DESSERT
 
 class Order(private val menus: List<Menu>) {
 
     init {
-        require(validateOrder()) { INVALID_ORDER }
+        require(
+            isValidMenuCount()
+                    && isNonDrinkMenuTypes()
+                    && isUniqueMenuItems()
+        ) { INVALID_ORDER }
     }
-
-    fun menus() = menus.toList()
 
     fun amount() = menus.sumOf { it.amount() }
 
@@ -22,17 +24,13 @@ class Order(private val menus: List<Menu>) {
 
     override fun toString() = menus.joinToString(NEW_LINE) { it.toString() }
 
-    private fun validateOrder() = validateTotalOrderCount()
-            && validateNonDrinkMenuTypes()
-            && validateNoDuplicateMenuItems()
+    private fun isValidMenuCount() = menus.sumOf { it.count } <= MAXIMUM_ORDER_COUNT
 
-    private fun validateTotalOrderCount() = menus.sumOf { it.count } <= MAX_TOTAL_ORDER_COUNT
+    private fun isNonDrinkMenuTypes() = !menus.all { it.item.type == DRINK }
 
-    private fun validateNonDrinkMenuTypes() = !menus.all { it.item.type == DRINK }
-
-    private fun validateNoDuplicateMenuItems() = menus.distinctBy { it.item }.size == menus.size
+    private fun isUniqueMenuItems() = menus.distinctBy { it.item }.size == menus.size
 
     companion object {
-        const val MAX_TOTAL_ORDER_COUNT = 20
+        const val MAXIMUM_ORDER_COUNT = 20
     }
 }

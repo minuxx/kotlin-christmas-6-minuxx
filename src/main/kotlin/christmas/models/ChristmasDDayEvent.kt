@@ -8,7 +8,7 @@ class ChristmasDDayEvent(private val date: Int) : Event(date) {
     override val benefitAmount: Int = DISCOUNT_PRINCIPAL + (date - START_DATE) * DISCOUNT_UNIT
 
     init {
-        require(isValidChristmasEventDate()) { INVALID_DATE }
+        require(isValidEventDate(date) && isValidChristmasEventDate()) { INVALID_DATE }
     }
 
     override fun toString(): String = "$NAME: ${MINUS_CURRENCY_UNIT.format(benefitAmount.withCommas())}"

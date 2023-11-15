@@ -1,6 +1,5 @@
 package christmas.models
 
-import christmas.constants.Constants.EVENT_MONTH
 import christmas.constants.Constants.MINUS_CURRENCY_UNIT
 import christmas.constants.ErrorMessage.INVALID_DATE
 import christmas.constants.Extensions.withCommas
@@ -13,7 +12,7 @@ class WeekendEvent(private val date: Int, mainMenuCount: Int) : Event(date) {
     override val benefitAmount: Int = (mainMenuCount * DISCOUNT_UNIT)
 
     init {
-        require(isValidEventDate() && isWeekend()) { INVALID_DATE }
+        require(isValidEventDate(date) && isWeekend()) { INVALID_DATE }
     }
 
     override fun toString(): String = "${NAME}: ${MINUS_CURRENCY_UNIT.format(benefitAmount.withCommas())}"
@@ -22,7 +21,7 @@ class WeekendEvent(private val date: Int, mainMenuCount: Int) : Event(date) {
 
     private fun isWeekend(): Boolean {
         return try {
-            val eventDateTime = LocalDate.of(LocalDate.now().year, EVENT_MONTH, date)
+            val eventDateTime = LocalDate.of(LocalDate.now().year, MONTH, date)
             eventDateTime.dayOfWeek == FRIDAY || eventDateTime.dayOfWeek == SATURDAY
         } catch (e: DateTimeException) {
             false

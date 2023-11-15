@@ -10,7 +10,7 @@ class PresentationEvent(date: Int, private val orderAmount: Int) : Event(date) {
     override val benefitAmount: Int = menu.amount()
 
     init {
-        require(isValidEventDate()) { INVALID_DATE }
+        require(isValidEventDate(date)) { INVALID_DATE }
         require(isValidOrderAmount()) { INVALID_ORDER_AMOUNT_FOR_PRESENTATION_EVENT }
     }
 
