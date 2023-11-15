@@ -9,6 +9,4 @@ object Constants {
     const val MINUS_CURRENCY_UNIT = "-%s원"
     const val MENU_WITH_COUNT = "%s %d개"
     const val NOTHING = "없음"
-
-    const val ZERO = 0
 }

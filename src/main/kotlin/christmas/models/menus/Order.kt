@@ -24,13 +24,13 @@ class Order(private val menus: List<Menu>) {
 
     override fun toString() = menus.joinToString(NEW_LINE) { it.toString() }
 
-    private fun isValidMenuCount() = menus.sumOf { it.count } <= MAXIMUM_ORDER_COUNT
+    private fun isValidMenuCount() = menus.sumOf { it.count } <= MAXIMUM_MENU_COUNT
 
     private fun isNonDrinkMenuTypes() = !menus.all { it.item.type == DRINK }
 
     private fun isUniqueMenuItems() = menus.distinctBy { it.item }.size == menus.size
 
     companion object {
-        const val MAXIMUM_ORDER_COUNT = 20
+        const val MAXIMUM_MENU_COUNT = 20
     }
 }
