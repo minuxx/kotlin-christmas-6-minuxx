@@ -13,8 +13,8 @@ class OutputView {
         println(WELCOME_MESSAGE)
     }
 
-    fun printPreview(eventDate: Int) {
-        println(PREVIEW_EVENT_BENEFIT_MESSAGE.format(eventDate) + NEW_LINE)
+    fun printPreviewEvent(eventDate: Int) {
+        println(PREVIEW_EVENT_MESSAGE.format(eventDate) + NEW_LINE)
     }
 
     fun printOrderMenu(orderMenu: String) {
@@ -22,8 +22,8 @@ class OutputView {
         println(orderMenu + NEW_LINE)
     }
 
-    fun printOrderTotalAmount(amount: Int) {
-        println(ORDER_TOTAL_AMOUNT_MESSAGE)
+    fun printOrderAmount(amount: Int) {
+        println(ORDER_AMOUNT_MESSAGE)
         println(CURRENCY_UNIT.format(amount.withCommas()) + NEW_LINE)
     }
 
@@ -37,11 +37,11 @@ class OutputView {
         println(benefitHistory + NEW_LINE)
     }
 
-    fun printTotalBenefitAmount(totalBenefitAmount: Int) {
-        println(TOTAL_BENEFIT_AMOUNT_MESSAGE)
+    fun printBenefitAmount(benefitAmount: Int) {
+        println(BENEFIT_AMOUNT_MESSAGE)
 
-        if (totalBenefitAmount != 0) {
-            println(MINUS_CURRENCY_UNIT.format(totalBenefitAmount.withCommas()) + NEW_LINE)
+        if (benefitAmount != 0) {
+            println(MINUS_CURRENCY_UNIT.format(benefitAmount.withCommas()) + NEW_LINE)
         } else {
             println(CURRENCY_UNIT.format(ZERO) + NEW_LINE)
         }
@@ -59,14 +59,13 @@ class OutputView {
 
     companion object {
         private const val WELCOME_MESSAGE = "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다."
-        private const val PREVIEW_EVENT_BENEFIT_MESSAGE = "${Event.MONTH}월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"
+        private const val PREVIEW_EVENT_MESSAGE = "${Event.MONTH}월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"
 
         private const val ORDER_MENU_MESSAGE = "<주문 메뉴>"
-        private const val ORDER_TOTAL_AMOUNT_MESSAGE = "<할인 전 총주문 금액>"
-
+        private const val ORDER_AMOUNT_MESSAGE = "<할인 전 총주문 금액>"
         private const val PRESENTATION_MENU_MESSAGE = "<증정 메뉴>"
         private const val BENEFIT_HISTORY_MESSAGE = "<혜택 내역>"
-        private const val TOTAL_BENEFIT_AMOUNT_MESSAGE = "<총혜택 금액>"
+        private const val BENEFIT_AMOUNT_MESSAGE = "<총혜택 금액>"
         private const val DISCOUNTED_AMOUNT_MESSAGE = "<할인 후 예상 결제 금액>"
         private const val EVENT_BADGE_MESSAGE = "<${Event.MONTH}월 이벤트 배지>"
     }

@@ -20,9 +20,9 @@ class EventPlanner {
         val visitDate = inputVisitDate()
         val order = inputOrder()
 
-        outputView.printPreview(visitDate.value())
+        outputView.printPreviewEvent(visitDate.value())
         outputView.printOrderMenu(order.toString())
-        outputView.printOrderTotalAmount(order.amount())
+        outputView.printOrderAmount(order.amount())
 
         val eventGenerator = EventGenerator(visitDate.value(), order)
         val events = Events(eventGenerator.execute())
@@ -32,7 +32,7 @@ class EventPlanner {
 
         val totalBenefitAmount = events.benefitAmount()
 
-        outputView.printTotalBenefitAmount(totalBenefitAmount)
+        outputView.printBenefitAmount(totalBenefitAmount)
 
         val discountedAmount = order.amount() - events.discountAmount()
         outputView.printDiscountedAmount(discountedAmount)
