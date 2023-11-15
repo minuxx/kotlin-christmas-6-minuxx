@@ -17,34 +17,41 @@ class EventPlanner {
     fun start() {
         outputView.printWelcome()
 
-        outputView.printInputVisitDate()
         val visitDate = inputVisitDate()
-
-        outputView.printInputOrder()
         val order = inputOrder()
 
+        printReceipt(visitDate, order)
+        processEvents(visitDate, order)
+
+        inputView.closeInput()
+    }
+
+    private fun printReceipt(visitDate: EventDate, order: Order) {
         outputView.printPreviewEvent(visitDate.value())
         outputView.printOrderMenu(order.toString())
         outputView.printOrderAmount(order.amount())
+    }
 
+    private fun processEvents(visitDate: EventDate, order: Order) {
         val eventGenerator = EventGenerator(visitDate.value(), order)
         val events = Events(eventGenerator.execute())
 
         outputView.printPresentationMenu(events.presentationMenu())
         outputView.printBenefitHistory(events.benefitHistory())
 
-        val totalBenefitAmount = events.benefitAmount()
-
-        outputView.printBenefitAmount(totalBenefitAmount)
+        val benefitAmount = events.benefitAmount()
+        outputView.printBenefitAmount(benefitAmount)
 
         val discountedAmount = order.amount() - events.discountAmount()
         outputView.printDiscountedAmount(discountedAmount)
 
-        val eventBadge = EventBadge.of(totalBenefitAmount)
+        val eventBadge = EventBadge.of(benefitAmount)
         outputView.printEventBadge(eventBadge.description)
     }
 
     private fun inputVisitDate(): EventDate {
+        outputView.printInputVisitDate()
+
         return try {
             val value = inputView.readDate()
 
@@ -56,6 +63,8 @@ class EventPlanner {
     }
 
     private fun inputOrder(): Order {
+        outputView.printInputOrder()
+
         return try {
             val order = inputView.readOrder()
             val menus = createMenus(order)
@@ -68,15 +77,9 @@ class EventPlanner {
     }
 
     private fun createMenus(order: List<Pair<String, Int>>): List<Menu> {
-        val menus = mutableListOf<Menu>()
-
-        order.forEach { (description, count) ->
+        return order.map { (description, count) ->
             val item = MenuItem.of(description)
-            val menu = Menu(item, count)
-
-            menus.add(menu)
+            Menu(item, count)
         }
-
-        return menus
     }
 }

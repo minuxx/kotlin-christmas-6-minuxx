@@ -17,4 +17,6 @@ class InputView {
 
         return inputValidator.validateOrderInput(input)
     }
+
+    fun closeInput() = Console.close()
 }
