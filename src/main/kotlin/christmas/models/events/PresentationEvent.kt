@@ -7,7 +7,7 @@ import christmas.constants.Extensions.withCommas
 import christmas.models.menus.Menu
 import christmas.models.menus.MenuItem
 
-class PresentationEvent(date: Int, private val orderAmount: Int) : Event() {
+class PresentationEvent(private val date: Int, private val orderAmount: Int) : Event() {
     private val menu: Menu = Menu(MenuItem.CHAMPAGNE, 1)
     override val benefitAmount: Int = menu.amount()
 

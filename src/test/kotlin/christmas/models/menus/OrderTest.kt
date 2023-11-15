@@ -2,6 +2,7 @@ package christmas.models.menus
 
 import christmas.constants.ErrorMessage
 import org.assertj.core.api.AssertionsForClassTypes.assertThat
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
